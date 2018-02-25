@@ -69,13 +69,16 @@ namespace DirToHtml
 
             foreach (TableRow row in html.mainTable)
             {
-                html.mainTableStringList.Add("\t" + Elements.tr);
+                int i = 0;
 
                 foreach (string data in row.data)
                 {
-                    html.mainTableStringList.Add("\t\t" + Elements.td);
+                    if (i == 2) html.mainTableStringList.Add("\t\t" + "<td style=\"text-align: right\">");
+                    else html.mainTableStringList.Add("\t\t" + Elements.td);
                     html.mainTableStringList.Add("\t\t\t" + data);
                     html.mainTableStringList.Add("\t\t" + Elements.tdEnd);
+
+                    i++;
                 }
 
                 html.mainTableStringList.Add("\t" + Elements.trEnd);
