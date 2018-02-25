@@ -10,6 +10,15 @@ namespace DirToHtml
     {
         static void Main(string[] args)
         {
+            FlyingAnvil.Manager.Debug.LogStatus = true;
+
+            DirToHtml program = new DirToHtml();
+
+            bool keepOn = true;
+
+            while (keepOn) keepOn = program.Start();
+
+            Console.ReadLine();
         }
     }
 }
