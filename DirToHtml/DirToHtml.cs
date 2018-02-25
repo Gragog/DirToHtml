@@ -11,6 +11,8 @@ namespace DirToHtml
 {
     class DirToHtml
     {
+        Html html = new Html();
+
         public bool Start()
         {
             Directory.SetCurrentDirectory(@"D:\HFS\FlyingAnvil\DirToHtml");
@@ -21,10 +23,22 @@ namespace DirToHtml
 
             Debug.Log(curDir);
 
-            Html.title = curDir;
-            File.WriteAllLines(curDir + @"\index.html", Html.Generate());
+            GenerateMainTable(entries);
+
+            html.title = curDir;
+            File.WriteAllLines(curDir + @"\index.html", html.Generate());
 
             return false;
+        }
+
+        private void GenerateMainTable(string[] entries)
+        {
+            foreach (string entry in entries)
+            {
+                html.mainTable.Add(Elements.tr);
+                html.mainTable.Add(Elements.TableLine(entry));
+                html.mainTable.Add(Elements.trEnd);
+            }
         }
     }
 }
