@@ -23,7 +23,9 @@ namespace DirToHtml
 
             Debug.Log(curDir);
 
-            GenerateMainTable(entries);
+            AddentriesToMainTable(entries);
+
+            GenerateMainTable();
 
             html.title = curDir;
             File.WriteAllLines(curDir + @"\index.html", html.Generate());
@@ -31,14 +33,83 @@ namespace DirToHtml
             return false;
         }
 
-        private void GenerateMainTable(string[] entries)
+        private void AddentriesToMainTable(string[] entries)
         {
             foreach (string entry in entries)
             {
-                html.mainTable.Add(Elements.tr);
-                html.mainTable.Add(Elements.TableLine(entry));
-                html.mainTable.Add(Elements.trEnd);
+                // Add Icon
+                string extension = entry.Substring((entry.LastIndexOf(".")));
+
+                // Add Extension and Name
+                TableRow row = new TableRow(entry.Substring(entry.LastIndexOf(@"\") + 1));
+
+                // Add Size
+                row.Add(GenerateSizeString(entry));
+
+                // Add row o mainTable
+                html.mainTable.Add(row);
             }
+        }
+
+        private void GenerateMainTable()
+        {
+            #region Table Header
+            TableHeadRow head = new TableHeadRow();
+            html.mainTableStringList.Add("\t" + Elements.thead);
+            html.mainTableStringList.Add("\t" + Elements.tr);
+            foreach (string header in head.headers)
+            {
+                html.mainTableStringList.Add("\t" + Elements.th);
+                html.mainTableStringList.Add("\t\t" + header);
+                html.mainTableStringList.Add("\t" + Elements.thEnd);
+            }
+            html.mainTableStringList.Add("\t" + Elements.theadEnd);
+            html.mainTableStringList.Add("\t" + Elements.tr);
+            #endregion
+
+            foreach (TableRow row in html.mainTable)
+            {
+                html.mainTableStringList.Add("\t" + Elements.tr);
+
+                foreach (string data in row.data)
+                {
+                    html.mainTableStringList.Add("\t\t" + Elements.td);
+                    html.mainTableStringList.Add("\t\t\t" + data);
+                    html.mainTableStringList.Add("\t\t" + Elements.tdEnd);
+                }
+
+                html.mainTableStringList.Add("\t" + Elements.trEnd);
+            }
+        }
+
+        private string GenerateSizeString(string entry)
+        {
+            long size = new FileInfo(entry).Length;
+            int displaySize = 0;
+            string postfix = "B";
+
+            // To KB
+            if (size > 1024)
+            {
+                displaySize = (int)(size / 1024);
+                postfix = "kB";
+            }
+
+            // To MB
+            if (displaySize > 1024)
+            {
+                displaySize = (int)(displaySize / 1024);
+                postfix = "MB";
+            }
+
+            // To GB
+            if (displaySize > 1024)
+            {
+                displaySize = (int)(displaySize / 1024);
+                postfix = "GB";
+            }
+
+            return displaySize.ToString() + " " + postfix;
         }
     }
 }

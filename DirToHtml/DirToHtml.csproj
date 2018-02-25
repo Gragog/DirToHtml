@@ -48,6 +48,7 @@
     <Compile Include="Manager\Input.cs" />
     <Compile Include="Pattern\Elements.cs" />
     <Compile Include="Pattern\Html.cs" />
+    <Compile Include="Pattern\TableRow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

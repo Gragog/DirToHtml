@@ -18,7 +18,7 @@ namespace DirToHtml
 
             while (keepOn) keepOn = program.Start();
 
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace DirToHtml.Pattern
     {
         public Html()
         {
-            mainTable.Add("<table>");
+            mainTableStringList.Add("<table border=" + q + "2px" + q + ">");
         }
 
         public string title = "Page";
@@ -20,12 +20,13 @@ namespace DirToHtml.Pattern
         public string html = "";
 
         public List<string> body = new List<string>();
-        public List<string> mainTable = new List<string>();
+        public List<TableRow> mainTable = new List<TableRow>();
+        public List<string> mainTableStringList = new List<string>();
 
         public string[] Generate()
         {
-            mainTable.Add("</table>");
-            body.Add(String.Join("\n", mainTable.ToArray()));
+            mainTableStringList.Add("</table>");
+            body.Add(String.Join("\n", mainTableStringList.ToArray()));
 
             string bodyString = String.Join("\n", body.ToArray());
 

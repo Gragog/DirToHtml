@@ -9,6 +9,12 @@ namespace DirToHtml.Pattern
     class Elements
     {
         #region Table
+        public static string thead = "<thead>";
+        public static string theadEnd = "</thead>";
+
+        public static string th = "<th>";
+        public static string thEnd = "</th>";
+
         public static string tr = "<tr>";
         public static string trEnd = "</tr>";
 
