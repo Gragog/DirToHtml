@@ -61,6 +61,7 @@
     <None Include="CHANGELOG.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="my.css" />
     <Content Include="Pattern\HTMLPage1.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

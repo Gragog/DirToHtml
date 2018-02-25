@@ -1,3 +1,9 @@
-﻿table {
-	font-family: consolas;
+﻿@font-face {
+    font-family: monospace;
+    src: url(https://raw.githubusercontent.com/Gragog/DirToHtml/dth-2/DirToHtml/Font/UbuntuMono-Regular.ttf);
 }
+
+table {
+	font-family: monospace;
+}
+

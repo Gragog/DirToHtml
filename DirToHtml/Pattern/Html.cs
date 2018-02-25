@@ -34,12 +34,13 @@ namespace DirToHtml.Pattern
 <html lang=" + q + @"\en\ xmlns=" + q + @"http://www.w3.org/1999/xhtml" + q + @">
 <head>
 <meta charset=" + q + "utf-8" + q + @" />
-<title>" + title + @"</title>
+<title>" + title + @"</title>" +
+"<link rel=\"stylesheet\" href=\"https://raw.githubusercontent.com/Gragog/DirToHtml/dth-2/DirToHtml/my.css\"" + @">
 </head>
 <body>
 " + bodyString + @"
 </body>
-</html>";
+</html> ";
 
             return new string[] { html };
         }
