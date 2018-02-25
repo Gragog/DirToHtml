@@ -10,7 +10,7 @@ namespace DirToHtml.Pattern
     {
         public Html()
         {
-            mainTableStringList.Add("<table border=" + q + "2px" + q + ">");
+            mainTableStringList.Add("<table border=" + q + "2px" + q + " width=\"50%\" style=\"margin: auto;\">");
         }
 
         public string title = "Page";
@@ -35,7 +35,43 @@ namespace DirToHtml.Pattern
 <head>
 <meta charset=" + q + "utf-8" + q + @" />
 <title>" + title + @"</title>" +
-"<link rel=\"stylesheet\" href=\"https://raw.githubusercontent.com/Gragog/DirToHtml/dth-2/DirToHtml/my.css\"" + @">
+"<link href=\"https://use.fontawesome.com/releases/v5.0.6/css/all.css\" rel=\"stylesheet\">" + @"
+<style>
+@font-face {
+    font-family: monospace;
+    src: url(https://raw.githubusercontent.com/Gragog/DirToHtml/dth-2/DirToHtml/Font/UbuntuMono-Regular.ttf);
+}
+
+table {
+	font-family: monospace;
+}
+
+img {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+a.link-name:visited {
+    text-decoration: none;
+    color: #69912E;
+    font-weight: bold;
+}
+a.link-name:link  {
+    text-decoration: none;
+    color: #69912E;
+    font-weight: bold;
+}
+a.link-name:hover  {
+    text-decoration: none;
+    color: #69912E;
+    font-weight: bold;
+}
+a.link-name:active  {
+    text-decoration: none;
+    color: #69912E;
+    font-weight: bold;
+}
+</style>
 </head>
 <body>
 " + bodyString + @"

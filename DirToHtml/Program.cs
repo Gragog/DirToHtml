@@ -14,11 +14,11 @@ namespace DirToHtml
 
             DirToHtml program = new DirToHtml();
 
-            bool keepOn = true;
+            bool keepOn = program.Prepare(); ;
 
             while (keepOn) keepOn = program.Start();
 
-            //Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }

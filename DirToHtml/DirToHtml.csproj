@@ -46,11 +46,13 @@
     <Compile Include="DirToHtml.cs" />
     <Compile Include="Manager\Debug.cs" />
     <Compile Include="Manager\Input.cs" />
+    <Compile Include="Manager\NthIndex.cs" />
     <Compile Include="Pattern\Elements.cs" />
     <Compile Include="Pattern\Html.cs" />
     <Compile Include="Pattern\TableRow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
